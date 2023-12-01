@@ -6,7 +6,7 @@
 		"jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
 		"declaration": true /* Generates corresponding '.d.ts' file. */,
 		"outDir": "./compiled" /* Redirect output structure to the directory. */,
-
+		"checkJs": false,
 		/* Strict Type-Checking Options */
 		"strict": true /* Enable all strict type-checking options. */,
 
