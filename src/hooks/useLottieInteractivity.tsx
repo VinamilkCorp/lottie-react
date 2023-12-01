@@ -140,6 +140,7 @@ export const useInitInteractivity = ({
         } else {
           document.removeEventListener("scroll", scrollHandler);
         };
+      }
     };
 
     const cursorModeHandler = () => {
