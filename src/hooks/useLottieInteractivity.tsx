@@ -29,6 +29,7 @@ export type InitInteractivity = {
   animationItem: InteractivityProps["lottieObj"]["animationItem"];
   actions: InteractivityProps["actions"];
   mode: InteractivityProps["mode"];
+  containerWrapperId?: any
 };
 
 export const useInitInteractivity = ({
@@ -36,6 +37,7 @@ export const useInitInteractivity = ({
   animationItem,
   mode,
   actions,
+  containerWrapperId
 }: InitInteractivity) => {
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -126,12 +128,18 @@ export const useInitInteractivity = ({
           );
         }
       };
-
-      document.addEventListener("scroll", scrollHandler);
+      if(containerWrapperId) {
+        containerWrapperId.addEventListener("scroll", scrollHandler);
+      } else {
+        document.addEventListener("scroll", scrollHandler);
+      }
 
       return () => {
-        document.removeEventListener("scroll", scrollHandler);
-      };
+        if(containerWrapperId) {
+         containerWrapperId.removeEventListener("scroll", scrollHandler);
+        } else {
+          document.removeEventListener("scroll", scrollHandler);
+        };
     };
 
     const cursorModeHandler = () => {
